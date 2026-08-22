@@ -1,0 +1,106 @@
+# Draws black bob hair
+def drawHair(xCenter, yCenter):
+    fill(30,18,7)
+    arc(xCenter, yCenter, 200, 360, PI, TWO_PI, CHORD);
+
+# Draws a head
+def drawHead(xCenter, yCenter):
+    fill(228,187,165)
+    #fill(238,197,175)
+    ellipse(xCenter, yCenter, 150, 200)
+
+# Draws a pair of glasses
+def drawGlasses(xCenter, yCenter):
+    fill(240,215,201)
+    ellipse(xCenter-35, yCenter+10, 60, 55)
+    ellipse(xCenter+35, yCenter+10, 60, 55)
+    fill(228,187,165)
+    ellipse(xCenter-35, yCenter+10, 55, 50)
+    ellipse(xCenter+35, yCenter+10, 55, 50)
+    fill(240,215,201)
+    arc(xCenter, yCenter, 20, 5, PI, TWO_PI, CHORD);
+    arc(xCenter-70, yCenter, 15, 5, PI, TWO_PI, CHORD);
+    arc(xCenter+70, yCenter, 15, 5, PI, TWO_PI, CHORD);
+
+# Draws an eye with white sclera, brown iris, and black pupil
+def drawEye(xCenter, yCenter):
+    if keyPressed and key == 'h':
+        fill(255)
+        ellipse(xCenter, yCenter, 30, 15)
+        fill(55,35,11)
+        ellipse(xCenter, yCenter, 15, 15)
+        fill(15,17,16)
+        ellipse(xCenter, yCenter, 5, 5)
+    if keyPressed and key == 's':
+        fill(110,79,63)
+        arc(xCenter, yCenter+5, 30, 5, 0, PI, CHORD);
+    elif mousePressed and mouseX>=width/2-75 and mouseX<=width/2+75 and mouseY>=height/2-100 and mouseY<=height/2+100:
+        fill(255)
+        ellipse(xCenter, yCenter, 30, 20)
+        fill(55,35,11)
+        ellipse(xCenter, yCenter, 15, 15)
+        fill(15,17,16)
+        ellipse(xCenter, yCenter, 5, 5)
+    elif keyPressed and key == 'e':
+        fill(255)
+        ellipse(xCenter, yCenter, 30, 20)
+        fill(55,35,11)
+        ellipse(xCenter, yCenter, 20, 20)
+        fill(15,17,16)
+        ellipse(xCenter, yCenter, 7, 7)
+    else:
+        fill(255)
+        ellipse(xCenter, yCenter, 30, 20)
+        fill(55,35,11)
+        ellipse(xCenter, yCenter, 20, 20)
+        fill(15,17,16)
+        ellipse(xCenter, yCenter, 7, 7)
+    
+# Draws a brown eyebrow
+def drawEyebrow(xCenter, yCenter):
+    if mousePressed and mouseX>=width/2-75 and mouseX<=width/2+75 and mouseY>=height/2-100 and mouseY<=height/2+100:
+        fill(110,79,63)
+        arc(xCenter, yCenter-10, 30, 5, PI, TWO_PI, CHORD);
+    else:
+        fill(110,79,63)
+        arc(xCenter, yCenter, 30, 5, PI, TWO_PI, CHORD);
+
+# Draws a round nose with outline
+def drawNose(xCenter, yCenter):
+    fill(228,187,165)
+    stroke(0)
+    triangle(xCenter, yCenter, 185, 240, 215, 240)
+    arc(xCenter, yCenter+40, 30, 20, 0, PI)
+
+# Draws a pink smiling mouth
+def drawMouth(xCenter, yCenter):
+    if keyPressed and key == 'h':
+        fill(231,130,138)
+        noStroke()
+        arc(xCenter, yCenter, 60, 40, 0, PI, CHORD);
+    elif keyPressed and key == 's':
+        fill(231,130,138)
+        noStroke()
+        arc(xCenter, yCenter+10, 60, 20, PI, TWO_PI, CHORD);
+    else:
+        fill(231,130,138)
+        noStroke()
+        arc(xCenter, yCenter, 60, 20, 0, PI, CHORD);
+
+# Sets the size of the canvas and draws a white background
+def setup():
+    size(400,400)
+    fill(255)
+    noStroke()
+    rect(0,0,400,400)
+
+def draw():
+    drawHair(200, 260)
+    drawHead(width/2, height/2)
+    drawGlasses(width/2, height/2)
+    drawEye(width*17/40, height/2)
+    drawEyebrow(width*17/40, 180)
+    drawEye(width*23/40, height/2)
+    drawEyebrow(width*23/40, 180)
+    drawNose(200, 200)
+    drawMouth(200, 260)
